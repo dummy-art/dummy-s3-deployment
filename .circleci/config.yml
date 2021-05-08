@@ -3,12 +3,11 @@ jobs:
     docker:
       - image: 'cimg/python:3.6'
     steps:
-      - checkout:
-          path: /project
+      - checkout
       - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
       - run: ls -lart
       - run: pwd
-      - run: cd /project
+      - run: cd .
       - run: ls -lart
       - aws-s3/copy:
           arguments: '--dryrun'
