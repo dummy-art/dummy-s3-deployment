@@ -6,11 +6,9 @@ jobs:
       - checkout
       - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
       - aws-s3/copy:
-          arguments: '--dryrun'
           from: ~/project/index.html
           to: 's3://sample.dummy-project.com'
       - aws-s3/copy:
-          arguments: '--dryrun'
           from: ~/project/pic_trulli.jpg
           to: 's3://sample.dummy-project.com'
       
