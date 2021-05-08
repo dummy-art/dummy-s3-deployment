@@ -19,4 +19,4 @@ workflows:
   deployment:
     jobs:
       - build:
-          context: dummy-helm
+        context: dummy
