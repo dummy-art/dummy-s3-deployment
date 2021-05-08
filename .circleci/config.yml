@@ -7,16 +7,14 @@ jobs:
       - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
       - aws-s3/copy:
           arguments: '--dryrun'
-          from: bucket/build_asset.txt
-          to: 's3://my-s3-bucket-name'
+          from: ~/project/index.html
+          to: 's3://sample.dummy-project.com'
       - aws-s3/copy:
           arguments: '--dryrun'
-          from: ~/project/test.txt
-          to: 's3://my-s3-bucket-name'
-      - aws-s3/copy:
-          arguments: '--dryrun'
-          from: ~/project/dummy-s3-deployment/test.txt
-          to: 's3://my-s3-bucket-name'
+          from: ~/project/pic_trulli.jpg
+          to: 's3://sample.dummy-project.com'
+      
+      
 orbs:
   aws-s3: circleci/aws-s3@2.0.0
 version: 2.1
