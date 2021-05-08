@@ -5,9 +5,9 @@ jobs:
     steps:
       - checkout
       - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
+      - run: cd .git
       - run: ls -lart
-      - run: pwd
-      - run: cd .
+      - run: cd ../.circleci
       - run: ls -lart
       - aws-s3/copy:
           arguments: '--dryrun'
