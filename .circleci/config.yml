@@ -5,8 +5,9 @@ jobs:
     steps:
       - checkout
       - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
-      - run: ls
+      - run: ls -lart
       - run: pwd
+      - run: cd dummy-s3-deployment
       - aws-s3/copy:
           arguments: '--dryrun'
           from: bucket/build_asset.txt
@@ -19,4 +20,4 @@ workflows:
   deployment:
     jobs:
       - build:
-        context: dummy
+          context: dummy
